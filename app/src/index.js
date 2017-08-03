@@ -1,5 +1,5 @@
 import React from 'react'
-//import {Component} from 'react'
+//import {Component} from 'react' este es un comentario
 import ReactDOM from 'react-dom'
 
 import FiltrableProducTable from './Components/FiltrableProducTable.js'
@@ -15,6 +15,3 @@ const db = [
 
 const app = document.getElementById('app')
 ReactDOM.render(<FiltrableProducTable store={db} />,app)
-
-
-
