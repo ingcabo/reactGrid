@@ -13,5 +13,9 @@ const db = [
   {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
 ];
 
+
+
+
+
 const app = document.getElementById('app')
 ReactDOM.render(<FiltrableProducTable store={db} />,app)

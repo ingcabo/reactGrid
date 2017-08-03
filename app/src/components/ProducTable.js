@@ -17,14 +17,22 @@ export default class ProducTable extends React.Component{
 
      if(this.props.products != null){
       this.props.products.forEach((product) => {
-          if(product.category != last_caterogory)
-
+          if(product.category != last_caterogory){
             rows.push(<ProductCategoryRow category={product.category} key={product.category} />)
-
+          }
             rows.push(<ProductRow product={product.name} key={product.name}/>)
+            last_caterogory = product.category;
+        })
+      } else if (this.props.filter != null && this.props.products != null) {
+            this.props.products.forEach((products)=>{
+            let filter = this.props.filter;  
+            if (product.name.indexOf(filter)> -1){
+
+            }
 
         })
-      }else{
+      }
+      else{
         rows.push(<h1>Loading...</h1>)
       }
 
