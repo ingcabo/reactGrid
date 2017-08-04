@@ -18,4 +18,5 @@ const db = [
 
 
 const app = document.getElementById('app')
-ReactDOM.render(<FiltrableProducTable store={db} />,app)
+//ReactDOM.render(<FiltrableProducTable store={db} />,app)
+ReactDOM.render(</>,app)
