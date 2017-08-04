@@ -26,7 +26,21 @@ module.exports = {
                   presets:["react","es2015","stage-0"],
                   plugins:["react-html-attrs","transform-class-properties","transform-decorators-legacy"],
               }
+          },
+
+          {
+            test: /\.(jpe?g|png|gif|svg)$/i,
+            loaders: [
+              'file?hash=sha512&digest=hex&name=[hash].[ext]',
+              'image-webpack?bypassOnDebug'
+            ]
+          },
+
+          {
+            test: /(\.css)$/,
+            loaders: ['css-loader']
           }
+
       ]
   },
   output: {
