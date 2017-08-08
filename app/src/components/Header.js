@@ -14,7 +14,7 @@ export default class Header extends React.Component{
       <div className="Header">
         <div className="Logo">
 
-          <h2>hola mundo</h2>
+          <h2>header.....</h2>
           <img src={ require("./global/images/logo.svg")} alt="logo" />
           <ul className="Menu">
             {

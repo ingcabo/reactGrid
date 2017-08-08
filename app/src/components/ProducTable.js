@@ -8,7 +8,7 @@ export default class ProducTable extends React.Component{
     super();
 
   }
-//aloooooo
+
 
   render(){
 
