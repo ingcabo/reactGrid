@@ -8,7 +8,7 @@ export default class ProducTable extends React.Component{
     super();
 
   }
-
+//aloooooo
 
   render(){
 
@@ -25,7 +25,7 @@ export default class ProducTable extends React.Component{
         })
       } else if (this.props.filter != null && this.props.products != null) {
             this.props.products.forEach((products)=>{
-            let filter = this.props.filter;  
+            let filter = this.props.filter;
             if (product.name.indexOf(filter)> -1){
 
             }
