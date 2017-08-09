@@ -8,17 +8,18 @@ import ProductTable from './ProducTable.js'
 export default class FiltrableProducTable extends React.Component{
   constructor(){
     super();
+
+    this.state = {
+      filter : null
+    }
   }
 
   render(){
     return(
       <div>
       <SearchBar  />
-      <ProductTable products={this.props.store}/>
+      <ProductTable products={this.props.store} filter = {this.state.filter}/>
       </div>
     );
   }
 }
-
-
-
