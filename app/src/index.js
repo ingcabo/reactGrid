@@ -1,24 +1,22 @@
+//dependencies
 import React from 'react'
 //import {Component} from 'react' este es un comentario
 import ReactDOM from 'react-dom'
 
-import Header from './Components/Header.js'
+//Components
+import Header  from  './Components/Header'
+import Content from  './Components/Content'
+import Footer  from  './Components/Footer'
 
-//import FiltrableProducTable from './Components/FiltrableProducTable.js'
-/*
-const db = [
-  {category: "Sporting Goods", price: "$49.89", stocked: true, name: "Football"},
-  {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
-  {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
-  {category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
-  {category: "Electronics", price: "$399.89", stocked: false, name: "iPhone 5"},
-  {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
-];
-*/
+//data
+import items   from  './data/menu'
+
 const app = document.getElementById('app')
 //ReactDOM.render(<FiltrableProducTable store={db} />,app)
 ReactDOM.render(
     <div className="App">
-      <Header />
+      <Header title="Un Buen titulo" items={items} />
+      <Content />
+      <Footer />
     </div>
   ,app)

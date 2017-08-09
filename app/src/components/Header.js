@@ -1,21 +1,30 @@
-import React from 'react'
-//adviceTemp
-import './global/css/Header.css'
-//require('./global/css/Header.css')
+//dependencies
+import React from 'react';
+import PropTypes from 'prop-types';
+//assets
+import './global/css/Header.css';
+import logo from './global/images/logo.svg';
 
 export default class Header extends React.Component{
+
+  static propTypes = {
+    title : PropTypes.string.isRequired,
+    items : PropTypes.array.isRequired
+  }
 
   constructor(){
     super()
   }
 
   render(){
+    const { title,items} = this.props;
+  // console.log(this.props);
     return(
       <div className="Header">
         <div className="Logo">
 
-          <h2>header.....</h2>
-          <img src={ require("./global/images/logo.svg")} alt="logo" />
+          <h2>{title}</h2>
+          <img src={logo} className="App-logo" alt="logo" />
           <ul className="Menu">
             {
             /*  items && items.map(
