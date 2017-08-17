@@ -27,9 +27,7 @@ export default class Header extends React.Component{
           <img src={logo} className="App-logo" alt="logo" />
           <ul className="Menu">
             {
-            /*  items && items.map(
-                (item, key) => <li key={key}><Link to={item.url}>{item.title}</Link></li>
-              )*/
+                items && items.map((item, key) => <li key={key}> {item.title}</li>)
             }
           </ul>
         </div>
