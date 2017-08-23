@@ -17,6 +17,6 @@ ReactDOM.render(
     <div className="App">
       <Header title="Un Buen titulo" items={items} />
       <Content />
-      <Footer />
+      <Footer copyright="copyright" />
     </div>
   ,app)
