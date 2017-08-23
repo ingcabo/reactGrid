@@ -8,13 +8,18 @@ export default class Content extends React.Component{
     super(props);
     //console.log(this.props);
     this.state={
-      count: 0
+      count: 0,
+      number1 :0,
+      number2: 0,
+      result :0
+
     };
 
     this.handleCountClick = this.handleCountClick.bind(this);
+    this.handleResultClick = this.handleResultClick.bind(this);
+    this.handleInputChanged = this.handleInputChanged.bind(this);
+
   }
-
-
 
   componentDidMount(){
     this.setState({
@@ -38,6 +43,22 @@ export default class Content extends React.Component{
     }
   }
 
+  handleResultClick(e){
+
+  }
+
+  handleInputChanged(e){
+    if(e.target.id==="number1"){
+      this.setState({
+        number1:Number(e.target.value)
+      })
+    }else{
+      this.setState({
+        number2:Number(e.target.value)
+      })
+    }
+  }
+
   render(){
     return(
       <div className="Content">
@@ -46,6 +67,13 @@ export default class Content extends React.Component{
             <button id="add" onClick={this.handleCountClick}>+</button>
             <button id="subtract" onClick={this.handleCountClick}>-</button>
             <button id="reset" onClick={this.handleCountClick}>Reset</button>
+          </p>
+          <h2>Calc</h2>
+          <p>
+            <input id="number1" type="number" value={this.state.number1} onChange={this.handleInputChanged} />
+            +
+            <input id="number2" type="number" value={this.state.number2} onChange={this.handleInputChanged}/>
+            <button id="result" onClick={this.handleResultClick}>REsultado</button>
           </p>
       </div>
     );
