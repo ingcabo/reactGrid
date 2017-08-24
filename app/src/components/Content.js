@@ -9,8 +9,8 @@ export default class Content extends React.Component{
     //console.log(this.props);
     this.state={
       count: 0,
-      number1 :0,
-      number2: 0,
+      number1 :'',
+      number2: '',
       result :0
 
     };
@@ -50,6 +50,7 @@ export default class Content extends React.Component{
   handleInputChanged(e){
     if(e.target.id==="number1"){
       this.setState({
+
         number1:Number(e.target.value)
       })
     }else{
