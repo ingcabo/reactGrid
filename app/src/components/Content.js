@@ -18,9 +18,6 @@ export default class Content extends React.Component{
     this.handleCountClick = this.handleCountClick.bind(this);
     this.handleResultClick = this.handleResultClick.bind(this);
     this.handleInputChanged = this.handleInputChanged.bind(this);
-
-
-
   }
 
 // comprueba si el componente ya cargo
@@ -81,7 +78,9 @@ export default class Content extends React.Component{
             <input id="number2" type="number" value={this.state.number2} onChange={this.handleInputChanged}/>
             <button id="result" onClick={this.handleResultClick}>REsultado</button>
           </p>
-          {this.state.result}
+          <p>
+            REsultado :{this.state.result}
+          </p>
       </div>
     );
   }
