@@ -7,7 +7,7 @@ import Contact from './Components/Contact/index'
 import Home from './Components/Home/index'
 import Page404 from './Components/Page404/index'
 
-export default  AppRoutes = ()=>
+const  AppRoutes = ()=>
   <App>
     <switch>
       <Route path="/about" component={About} />
@@ -16,3 +16,5 @@ export default  AppRoutes = ()=>
       <Route  component={Page404} />
     </switch>
   </App>;
+
+export default  AppRoutes;

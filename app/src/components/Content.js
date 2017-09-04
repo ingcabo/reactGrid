@@ -1,8 +1,17 @@
 import React from 'react'
+
+import PropTypes from 'prop-types';
 //adviceTemp
 import './global/css/Content.css'
 
 export default class Content extends React.Component{
+
+  static PropTypes ={
+    body: PropTypes.object.isRequired
+  };
+
+
+/*
 
   constructor(props){
     super(props);
@@ -61,26 +70,15 @@ export default class Content extends React.Component{
       })
     }
   }
-
+*/
   render(){
+
+    const {body} = this.props;
+
     return(
+
       <div className="Content">
-          <h2>counter : {this.state.count}</h2>
-          <p>
-            <button id="add" onClick={this.handleCountClick}>+</button>
-            <button id="subtract" onClick={this.handleCountClick}>-</button>
-            <button id="reset" onClick={this.handleCountClick}>Reset</button>
-          </p>
-          <h2>Calc</h2>
-          <p>
-            <input id="number1" type="number" value={this.state.number1} onChange={this.handleInputChanged} />
-            +
-            <input id="number2" type="number" value={this.state.number2} onChange={this.handleInputChanged}/>
-            <button id="result" onClick={this.handleResultClick}>REsultado</button>
-          </p>
-          <p>
-            REsultado :{this.state.result}
-          </p>
+        {body}
       </div>
     );
   }

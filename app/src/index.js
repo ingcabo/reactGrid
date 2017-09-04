@@ -1,10 +1,12 @@
 //dependencies
 import React from 'react'
 //import {Component} from 'react' este es un comentario
-import { Router } from 'react-router-dom';
-import {render} from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom';
+import {render} from 'react-dom';
 
 //Components
+
+//import App from './Components/App';
 //import Header  from  './Components/Header'
 //import Content from  './Components/Content'
 //import Footer  from  './Components/Footer'
