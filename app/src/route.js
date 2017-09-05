@@ -7,15 +7,14 @@ import Contact from './Components/Contact/index.js'
 import Home from './Components/Home/index.js'
 import Page404 from './Components/Page404/index.js'
 
-const  AppRoutes = ()=>
+const AppRoutes = ()=>
   <App>
     <Switch>
-      <Route path="/about" component= {About} />
-      <Route path="/contact" component= {Contact} />
-      <Route path="/" component={Home} />
-      <Route  component={Page404} />
+      <Route exact path="/about" component= {About} />
+      <Route exact path="/contact" component= {Contact} />
+      <Route exact path="/" component= {Home} />
+      <Route  component= {Page404} />
     </Switch>
   </App>;
 
 export default  AppRoutes;
-//https://github.com/jackfranklin/universal-react-example/blob/master/routes.js

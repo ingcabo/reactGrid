@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
 
-//import App from './Components/App';
+
 import Header  from  './Header.js'
 import Content from  './Content.js'
 import Footer  from  './Footer.js'
@@ -19,7 +19,7 @@ static PropTypes ={
     return(
       <div className="App">
         <Header
-          title="CodeJobs"
+          title="GridInReact"
           items ={items}
         />
         <Content body={children} />

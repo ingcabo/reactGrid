@@ -9,7 +9,6 @@ export default class ProducTable extends React.Component{
 
   }
 
-
   render(){
 
      let rows =  []
