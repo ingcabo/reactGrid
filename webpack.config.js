@@ -7,6 +7,7 @@
  */
 var debug = process.env.NODE_ENV !== "production"
 var webpack = require("webpack")
+var path = require('path');
 
 module.exports = {
   context: __dirname,
@@ -55,11 +56,13 @@ module.exports = {
 
   //como se ha configurado el paquete webpack-dev-server podemos configurar el servidor mediante
   //este objeto
-/*  devServer:{
-      host: "0.0.0.0",
-      port: 8080,
-      inline: true //indica que nos cree un servidor de desarrollo basado en node y express??
-  },*/
+  devServer:{
+    
+     historyApiFallback: true
+    //  host: "0.0.0.0",
+    //  port: 8080,
+    //  inline: true //indica que nos cree un servidor de desarrollo basado en node y express??
+  },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
