@@ -23,4 +23,4 @@ render(
     <Router>
       <AppRoutes/>
     </Router>
-  ,app)
+  ,app);

@@ -7,6 +7,8 @@ import Header  from  './Header.js'
 import Content from  './Content.js'
 import Footer  from  './Footer.js'
 
+import items from '../data/menu.js'
+
 export default class App extends Component{
 static PropTypes ={
   children: PropTypes.object.isRequired
