@@ -19,7 +19,7 @@ static PropTypes ={
     return(
       <div className="App">
         <Header
-          title="GridInReact"
+          title="GridInReactxxx"
           items ={items}
         />
         <Content body={children} />

@@ -48,6 +48,8 @@ module.exports = {
     path: __dirname + "/app/dist/js/",//carpeta donde se guardara lo compilado
     filename: "index.min.js",//el js minificado final a pasar aproduccion
     public: "/build/", //directorio publico desde donde se podra vincular https://youtu.be/2M5L_uz6GO0?t=227
+    hotUpdateChunkFilename: 'hot/hot-update.js',
+    hotUpdateMainFilename: 'hot/hot-update.json'
   },
   //resolve: indica los archivos que webpack debe tener en cuenta
 /*  resolve:{
@@ -57,7 +59,7 @@ module.exports = {
   //como se ha configurado el paquete webpack-dev-server podemos configurar el servidor mediante
   //este objeto
   devServer:{
-    
+
      historyApiFallback: true
     //  host: "0.0.0.0",
     //  port: 8080,
