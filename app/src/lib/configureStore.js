@@ -11,3 +11,21 @@ import { createStore, applyMiddleware } from 'redux';
       ? action({ ...deps, dispatch, getState })
       : action
   );
+
+  export default function configureStore(options, rootReducer) {
+    const { initialState = {} } = options;
+
+    //ionconst initialState = options.initialState;
+
+    const middleware = [
+      injectMiddleware({
+        fetch: isomorphicFetch
+      }),
+      promiseMiddleware({
+        promiseTypeSuffixes: ['START', 'SUCCESS', 'ERROR']
+      }),
+      reduxImmutableStateInvariant()
+    ];
+
+    return createStore(rootReducer, initialState, applyMiddleware(...middleware));
+  }

@@ -1,7 +1,7 @@
 .Header {
   text-align: center;
   background-color: #222;
-  height: 160px;
+  height: 190px;
   padding: 20px;
   color: white;
 }
@@ -16,22 +16,22 @@
   to { transform: rotate(360deg); }
 }
 
-.Menu {
+.MenuPropio {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-.Menu li {
+.MenuPropio li {
 	display: inline-block;
 	padding-right: 10px;
 }
 
-.Menu li a {
+.MenuPropio li a {
     color: #CCC;
     text-decoration: none;
 }
 
-.Menu li a:hover {
+.MenuPropio li a:hover {
     color: #EEE;
 }

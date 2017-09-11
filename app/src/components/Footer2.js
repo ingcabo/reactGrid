@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 //adviceTemp
 import './global/css/Footer.css'
 
-export default class Footer extends React.Component{
+export default class Footer2 extends React.Component{
   static propTypes = {
     copyright : PropTypes.string
   }

@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-
-
-import Header  from  './Header.js'
-import Content from  './Content.js'
-import Footer  from  './Footer.js'
-
-import items from '../data/menu.js'
+import Header  from  './Header.js';
+import Content from  './Content.js';
+import Footer2  from  './Footer2.js';
+import items from '../data/menu.js';
+import { Navbar } from 'react-bootstrap';
 
 export default class App extends Component{
 static PropTypes ={
@@ -18,12 +16,25 @@ static PropTypes ={
     const { children  } = this.props;
     return(
       <div className="App">
+
         <Header
-          title="GridInReactxxx"
+          title="Casi e-commerce"
           items ={items}
         />
+
+
+        <Navbar className="NavbarSep">
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#">Ecommerce</a>
+            </Navbar.Brand>
+          </Navbar.Header>
+        </Navbar>
+
         <Content body={children} />
-        <Footer />
+
+
+        <Footer2 />
 
       </div>
     );

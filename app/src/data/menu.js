@@ -12,7 +12,7 @@ export default [
     url: '/contact'
   },
   {
-    title: 'Library',
-    url: '/library'
+    title: 'Steore',
+    url: '/store'
   }
 ];
