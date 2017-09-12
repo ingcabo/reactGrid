@@ -35,6 +35,7 @@ class ShoppingCart extends Component {
             {this.state.cart.map(product =>
               <tr key={product.id}>
                 <td>{product.name}</td>
+                <td><p>Cantidad</p></td>
                 <td className="text-right">${product.price}</td>
                 <td className="text-right"><Button bsSize="xsmall" bsStyle="danger" onClick={() => this.removeFromCart(product)}><Glyphicon glyph="trash" /></Button></td>
               </tr>
