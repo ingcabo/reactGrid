@@ -29,7 +29,7 @@ class ShoppingCart extends Component {
 
   render() {
     return (
-      <Panel header="Shopping Cart">
+      <Panel header="Promo Cart">
         <Table fill>
           <tbody>
             {this.state.cart.map(product =>
