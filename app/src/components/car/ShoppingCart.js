@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Panel, Table, Button, Glyphicon } from 'react-bootstrap';
+import store from '../store.js';
 
-//import  '../global/css/bootstrap/dist/css/bootstrap.min.css';
 
 const styles = {
   footer: {
@@ -14,10 +14,17 @@ class ShoppingCart extends Component {
   constructor() {
     super();
     this.removeFromCart = this.removeFromCart.bind(this);
-
+    //inicializamos car
     this.state = {
       cart: []
-    }
+    };
+    //suscribimos al strore para enterarnos de los cambios
+    store.subscribe(()=>{
+      //actualizar el estado local
+      this.setState({
+        cart: store.getState().cart
+      });
+    });
   }
 
   render() {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
+import store from '../store.js'
 
 const styles = {
   products: {
@@ -49,7 +50,12 @@ class ProductList extends Component {
   }
 
   addToCart(product) {
-
+    //pasamos un acton que es un objeto de 2 parametros
+    store.dispatch({
+      type: "ADD_TO_CART",
+      product
+    //product: product
+    })
   }
 }
 

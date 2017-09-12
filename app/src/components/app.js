@@ -18,24 +18,19 @@ static PropTypes ={
       <div className="App">
 
         <Header
-          title="Casi e-commerce"
+          title="Promover"
           items ={items}
         />
-
-
-        <Navbar className="NavbarSep">
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#">Ecommerce</a>
-            </Navbar.Brand>
-          </Navbar.Header>
-        </Navbar>
-
-        <Content body={children} />
-
-
+          <Navbar className="NavbarSep">
+            <Navbar.Header>
+              <Navbar.Brand>
+                <a href="#">Product List</a>
+              </Navbar.Brand>
+            </Navbar.Header>
+          </Navbar>
+          <Content body={children} />
         <Footer2 />
-
+        
       </div>
     );
   }
