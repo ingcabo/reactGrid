@@ -7,6 +7,8 @@ const reducer = (state,action) =>{
 
   if (action.type==="ADD_TO_CART"){
     let cart = [];
+    let cars =[];
+    let i = 0;
 
       // make a copy of the existing array
 
@@ -15,12 +17,23 @@ const reducer = (state,action) =>{
         }else{
            cart  = action.product;
         }
+/*
+        console.log(state.cart.length);
+
+          for (i = 0; i < state.cart.length; i++) {
+              cars = state.cart.concat(cart);
+          };
+
+*/
+          console.log(cars);
+
 
 
          let idAlreadyExists = state.cart.indexOf(cart) > -1;
 
+
         if (idAlreadyExists){
-          cart = {};
+
         }else{
 
         }
@@ -31,7 +44,7 @@ const reducer = (state,action) =>{
 
       ...state,
       //modificamos la llave car, lo qu existia en el estado actual debe concatenarlo, creando un nuevo arreglo
-      cart:state.cart.concat(action.product)
+      cart:state.cart.concat(cart)
 
     }
 

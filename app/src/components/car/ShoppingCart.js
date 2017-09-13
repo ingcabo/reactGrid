@@ -33,7 +33,7 @@ class ShoppingCart extends Component {
         <Table fill>
           <tbody>
             {this.state.cart.map(product =>
-              <tr key={product.id}>
+              <tr key={Math.floor((Math.random() * 1000) + 1)}>
                 <td>{product.name}</td>
                 <td><p>Cantidad</p></td>
                 <td className="text-right">${product.price}</td>
