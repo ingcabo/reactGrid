@@ -7,8 +7,9 @@ const reducer = (state,action) =>{
 
   if (action.type==="ADD_TO_CART"){
     let cart = [];
-    let cars =[];
+    let cars =[{}];
     let i = 0;
+
 
       // make a copy of the existing array
 
@@ -17,27 +18,17 @@ const reducer = (state,action) =>{
         }else{
            cart  = action.product;
         }
-/*
-        console.log(state.cart.length);
-
-          for (i = 0; i < state.cart.length; i++) {
-              cars = state.cart.concat(cart);
-          };
-
-*/
-          console.log(cars);
 
 
-
-         let idAlreadyExists = state.cart.indexOf(cart) > -1;
-
+       let idAlreadyExists = state.cart.indexOf(cart) > -1;
 
         if (idAlreadyExists){
-
+          cart['cant'] = cart['cant'] + 1;
         }else{
-
+          cart['cant'] =1;
         }
-
+        console.log(cart);
+        //https://stackoverflow.com/questions/2218999/remove-duplicates-from-an-array-of-objects-in-javascript
     //retornamos un nuevo objeto
       return{
       //copiar las llaves del estado actual
