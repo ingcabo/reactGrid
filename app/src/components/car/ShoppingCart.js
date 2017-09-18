@@ -33,10 +33,11 @@ class ShoppingCart extends Component {
         <Table fill>
           <tbody>
             {this.state.cart.map(product =>
-              <tr key={Math.floor((Math.random() * 1000) + 1)}>
+              <tr key={product.id}>
                 <td>{product.name}</td>
-                <td><p>Cantidad</p></td>
+                <td>{product.cant}</td>
                 <td className="text-right">${product.price}</td>
+                <td className="text-right">${product.price * product.cant}</td>
                 <td className="text-right"><Button bsSize="xsmall" bsStyle="danger" onClick={() => this.removeFromCart(product)}><Glyphicon glyph="trash" /></Button></td>
               </tr>
             )}
@@ -44,7 +45,7 @@ class ShoppingCart extends Component {
           <tfoot>
             <tr>
               <td colSpan="4" style={styles.footer}>
-                Total: ${this.state.cart.reduce((sum, product) => sum + product.price, 0)}
+                Total: ${this.state.cart.reduce((sum, product) => sum + product.price * product.cant, 0)}
               </td>
             </tr>
           </tfoot>
