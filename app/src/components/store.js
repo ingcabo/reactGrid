@@ -1,4 +1,5 @@
 //nos permite crear un store de redux
+//modificacion
 import { createStore } from 'redux';
 //definimos la funcion reductora recive dos parametros el estado actual y la accion
 var cart = [];
