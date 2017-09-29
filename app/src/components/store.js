@@ -10,15 +10,19 @@ const reducer = (state,action) =>{
 
   if (action.type==="ADD_TO_CART"){
 
+
     //aca se arma el array que alimenta al carrito sumando item que se repiten
     cars =  sumItems(cars,action);
 
     //retornamos un nuevo objeto
+
+
       return{
       //copiar las llaves del estado actual
       ...state,
       //modificamos la llave car, lo qu existia en el estado actual debe concatenarlo, creando un nuevo arreglo
       cart: cars
+
     }
 
   }else if (action.type==="REMOVE_FROM_CART"){
@@ -59,4 +63,5 @@ return cars;
 }
 
 // recive la funcion reductora y estado inicial
+
 export default createStore(reducer, { cart: [] });
