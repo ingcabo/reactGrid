@@ -41,7 +41,7 @@ class ShoppingCart extends Component {
 
 
   render() {
-      console.log(this.props.cart);
+    //  console.log(this.props.cart);
     return (
       <Panel header="Promo Cart">
         <Table fill>

@@ -26,9 +26,15 @@ const reducer = (state,action) =>{
     }
 
   }else if (action.type==="REMOVE_FROM_CART"){
+
+     cars= restItems(state.cart,action);
+
+
     return{
       ...state,
-      cart:state.cart.filter(product => product.id != action.product.id)
+  //  cart:state.cart.filter(product => product.id != action.product.id)
+     //cart:state.cart
+     cart : cars
     };
   }
 
@@ -60,6 +66,39 @@ const sumItems = (cars, action) =>{
        }
 flat = false;
 return cars;
+}
+
+
+const restItems = (state,action) =>{
+
+  cars  = state;
+
+
+  if (action.product.cant == 1){
+
+/* buscar el indice por medio de un valor de campo
+    for (var i=0; i<cars.length; i++) {
+      if ( cars[i].cant == 1 ) {
+        index = i;
+        break;
+      }
+    }
+*/
+  //buscar el indice por medio de un valor de campo
+    const index = cars.findIndex(item => item.id === action.product.id);
+    console.log(index);
+//  aca regresamos el objeto a eliminar
+/*
+  var obj = cars.filter(function(obj) {
+    return obj.cant == 1;
+  }).shift();
+*/
+
+
+  }else{
+  action.product.cant--;
+  }
+  return cars;
 }
 
 // recive la funcion reductora y estado inicial
