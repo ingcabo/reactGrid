@@ -39,13 +39,13 @@ const AddItemCount = (cars,action) =>{
 
   if (longArray == 0){
     cars = cars.concat(action.product);
-    cars[0]['cant'] =1
+    cars[longArray]['cant'] =1
   }else{
     if(index == -1){
       cars = cars.concat(action.product);
       cars[longArray]['cant'] =1
     }else{
-      cars[index]['cant'] = cars[index]['cant']+ 1;
+      cars[index]['cant']++;
     }
   }
   return cars;
@@ -54,17 +54,19 @@ const AddItemCount = (cars,action) =>{
 const restItems = (state,action) =>{
 
     cars  = state;
-    if (action.product.cant == 1){
-
-    //buscar el indice por medio de un valor de campo
     const index = cars.findIndex(item => item.id === action.product.id);
 
+    if (action.product.cant == 1){
+    //buscar el indice por medio de un valor de campo
+    cars.splice(index,1);
     }else{
-    action.product.cant--;
+    cars[index]['cant']--;
     }
   return cars;
 }
 
-// recive la funcion reductora y estado inicial
 
+//http://redux.js.org/docs/advanced/Middleware.html
+
+// recive la funcion reductora y estado inicial
 export default createStore(reducer, { cart: [] });

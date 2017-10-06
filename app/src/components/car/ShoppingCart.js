@@ -18,25 +18,13 @@ class ShoppingCart extends Component {
 
   constructor() {
     super();
-/*
-    this.removeFromCart = this.removeFromCart.bind(this);
-    //inicializamos car
-    this.state = {
-      cart: []
-    };
-    */
-    //suscribimos al strore para enterarnos de los cambios
-
       //actualizar el estado local
       store.subscribe(()=>{
        //actualizar el estado local
        this.setState({
          cart: store.getState().cart
        });
- });
-
-
-
+     });
   }
 
 
@@ -94,7 +82,5 @@ const mapDispatchToProps = dispatch =>{
     }
   };
 };
-
-
 
 export default connect(mapStateToProps,mapDispatchToProps)(ShoppingCart);
