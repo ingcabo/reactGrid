@@ -1,6 +1,6 @@
 //nos permite crear un store de redux
 //modificacion
-import { createStore } from 'redux';
+import { createStore,applyMiddleware } from 'redux';
 //definimos la funcion reductora recive dos parametros el estado actual y la accion
 var cars = new Array();
 var flat = false;
@@ -65,8 +65,16 @@ const restItems = (state,action) =>{
   return cars;
 }
 
+const logger = store => next => action => {
+  console.group(action.type)
+  console.info('dispatching', action)
+  let result = next(action)
+  console.log('next state', store.getState())
+  console.groupEnd(action.type)
+  return result
+}
 
 //http://redux.js.org/docs/advanced/Middleware.html
 
 // recive la funcion reductora y estado inicial
-export default createStore(reducer, { cart: [] });
+export default createStore(reducer, { cart: [] },applyMiddleware(logger));
