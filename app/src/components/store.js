@@ -9,95 +9,59 @@ var ind = null;
 const reducer = (state,action) =>{
 
   if (action.type==="ADD_TO_CART"){
-
-
     //aca se arma el array que alimenta al carrito sumando item que se repiten
-    cars =  sumItems(cars,action);
+    cars = AddItemCount(cars,action);
 
-    //retornamos un nuevo objeto
-
-
-      return{
+    return{
       //copiar las llaves del estado actual
-      ...state,
+    ...state,
       //modificamos la llave car, lo qu existia en el estado actual debe concatenarlo, creando un nuevo arreglo
-      cart: cars
-
-    }
+    cart: cars
+  };
 
   }else if (action.type==="REMOVE_FROM_CART"){
 
-     cars= restItems(state.cart,action);
-
-
+    cars= restItems(state.cart,action);
     return{
-      ...state,
-  //  cart:state.cart.filter(product => product.id != action.product.id)
-     //cart:state.cart
+    ...state,
      cart : cars
     };
+
   }
 
   return state;
 };
 
 //funcion para sumar item al carrito de compra
-const sumItems = (cars, action) =>{
+const AddItemCount = (cars,action) =>{
+  const longArray= cars.length;
+  const index = cars.findIndex(item => item.id === action.product.id);
 
-  for (var index = 0; index < cars.length; ++index) {
-
-    if (cars[index].id === action.product.id){
-      flat = true;
-      ind  = index;
-    }
-
-  }
-
-  if (cars.length == 0){
-    cars  = cars.concat(action.product);
+  if (longArray == 0){
+    cars = cars.concat(action.product);
     cars[0]['cant'] =1
   }else{
-        if (flat == false){
-            action.product['cant'] =1;
-            cars = cars.concat(action.product);
-        }else{
-           cars[ind]['cant'] = cars[ind]['cant']+ 1;
-              }
-       }
-flat = false;
-return cars;
+    if(index == -1){
+      cars = cars.concat(action.product);
+      cars[longArray]['cant'] =1
+    }else{
+      cars[index]['cant'] = cars[index]['cant']+ 1;
+    }
+  }
+  return cars;
 }
-
 
 const restItems = (state,action) =>{
 
-  cars  = state;
+    cars  = state;
+    if (action.product.cant == 1){
 
-
-  if (action.product.cant == 1){
-
-/* buscar el indice por medio de un valor de campo
-    for (var i=0; i<cars.length; i++) {
-      if ( cars[i].cant == 1 ) {
-        index = i;
-        break;
-      }
-    }
-*/
-  //buscar el indice por medio de un valor de campo
+    //buscar el indice por medio de un valor de campo
     const index = cars.findIndex(item => item.id === action.product.id);
-    console.log(index);
-//  aca regresamos el objeto a eliminar
-/*
-  var obj = cars.filter(function(obj) {
-    return obj.cant == 1;
-  }).shift();
-*/
 
-
-  }else{
-  action.product.cant--;
-  }
+    }else{
+    action.product.cant--;
+    }
   return cars;
 }
 

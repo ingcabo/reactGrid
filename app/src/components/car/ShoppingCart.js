@@ -41,7 +41,7 @@ class ShoppingCart extends Component {
 
 
   render() {
-    //  console.log(this.props.cart);
+    //  console.log(this.props.cart); {Math.random( 100, 10)
     return (
       <Panel header="Promo Cart">
         <Table fill>
