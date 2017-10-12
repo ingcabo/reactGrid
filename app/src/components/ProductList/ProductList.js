@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 import store from '../store.js';
 import {  addToCart } from '../../actions/actionCreators.js';
+import { connect } from 'react-redux';
 
 const styles = {
   products: {
@@ -50,13 +51,24 @@ class ProductList extends Component {
         )}
       </div>
     );
+  };
+
+};
+
+  const mapStateToProps =(state)=> {
+    return {
+      cart: state.cart
+    };
+  };
+
+  const mapDispatchToProps = (dispatch)=> {
+    return {
+      addToCart(product) {
+        dispatch(addToCart(product));
+      }
+    }
   }
 
-  addToCart(product) {
-    //pasamos un acton que es un objeto de 2 parametros
-    
-    store.dispatch(addToCart(product));
-  }
-}
 
-export default ProductList;
+
+export default connect(mapStateToProps,mapDispatchToProps)(ProductList);

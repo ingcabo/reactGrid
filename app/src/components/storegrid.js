@@ -6,10 +6,9 @@ import ShoppingCart from '../components/car/ShoppingCart.js';
 import './global/css/store.css'
 
 class storegrid extends Component {
-  render() {
-    return (
-      <div>
-
+   render() {
+     return (
+       <div>
         <Grid>
           <Row>
             <Col sm={8}>
@@ -20,9 +19,9 @@ class storegrid extends Component {
             </Col>
           </Row>
         </Grid>
-      </div>
-    );
-  }
+       </div>
+     );
+   }
 }
 
 export default storegrid;
