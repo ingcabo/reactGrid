@@ -6,7 +6,12 @@ var cars = new Array();
 var flat = false;
 var ind = null;
 const reducer = (state, action) => {
-    if (action.type === "ADD_TO_CART") {
+    if(action.type="REPLACE_PRODUCTS"){
+        return{
+          ...state,
+          products: action.products
+        };
+    }else if (action.type === "ADD_TO_CART") {
         //aca se arma el array que alimenta al carrito sumando item que se repiten
         cars = AddItemCount(cars, action);
         return {
@@ -62,5 +67,7 @@ const logger = store => next => action => {
     //http://redux.js.org/docs/advanced/Middleware.html
     // recive la funcion reductora y estado inicial
 export default createStore(reducer, {
-    cart: []
+    cart: [],
+    products: []
+
 }, applyMiddleware(logger));
