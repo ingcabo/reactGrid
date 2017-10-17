@@ -4,6 +4,7 @@
   "main": "index.js",
   "repository": {},
   "dependencies": {
+    "axios": "^0.16.2",
     "babel-loader": "^6.2.0",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-plugin-react-html-attrs": "^2.0.0",
@@ -28,6 +29,7 @@
     "redux-immutable-state-invariant": "^2.0.0",
     "redux-promise-middleware": "^4.4.1",
     "redux-state": "^1.1.0",
+    "redux-thunk": "^2.2.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.1"
   },

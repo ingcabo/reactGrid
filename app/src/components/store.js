@@ -1,31 +1,39 @@
 //nos permite crear un store de redux
 //modificacion
-import { createStore, applyMiddleware} from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk'
 //definimos la funcion reductora recive dos parametros el estado actual y la accion
 var cars = new Array();
 var flat = false;
 var ind = null;
-const reducer = (state, action) => {
-    if(action.type="REPLACE_PRODUCTS"){
-        return{
-          ...state,
-          products: action.products
-        };
-    }else if (action.type === "ADD_TO_CART") {
-        //aca se arma el array que alimenta al carrito sumando item que se repiten
-        cars = AddItemCount(cars, action);
+
+const reducer = (state = initialState, action) => {
+    if (action.type === "REPLACE_PRODUCTS") {
+        //console.log(action.products.data);
         return {
-            //copiar las llaves del estado actual
             ...state,
-            //modificamos la llave car, lo qu existia en el estado actual debe concatenarlo, creando un nuevo arreglo
+            products: action.products.data
+        };
+    } else if (action.type === "ADD_TO_CART") {
+
+        cars = AddItemCount(cars, action);
+
+        return {
+            ...state,
+            //cart: state.cart.concat(action.product)
             cart: cars
         };
     } else if (action.type === "REMOVE_FROM_CART") {
+
         cars = restItems(state.cart, action);
-        return {...state,
+
+        return {
+            ...state,
+            //cart: state.cart.filter(product => product.id !== action.product.id)
             cart: cars
         };
     }
+
     return state;
 };
 //funcion para sumar item al carrito de compra
@@ -40,11 +48,13 @@ const AddItemCount = (cars, action) => {
             cars = cars.concat(action.product);
             cars[longArray]['cant'] = 1
         } else {
-            cars[index]['cant']++;
+            cars[index]['cant'] ++;
         }
     }
     return cars;
 }
+
+//funcion que resta items del carrito
 const restItems = (state, action) => {
     cars = state;
     const index = cars.findIndex(item => item.id === action.product.id);
@@ -52,10 +62,11 @@ const restItems = (state, action) => {
         //buscar el indice por medio de un valor de campo
         cars.splice(index, 1);
     } else {
-        cars[index]['cant']--;
+        cars[index]['cant'] --;
     }
     return cars;
 }
+
 const logger = store => next => action => {
         console.group(action.type)
         console.info('dispatching', action)
@@ -70,4 +81,4 @@ export default createStore(reducer, {
     cart: [],
     products: []
 
-}, applyMiddleware(logger));
+}, applyMiddleware(logger,thunk));

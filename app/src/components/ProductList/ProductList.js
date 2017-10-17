@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Button, Glyphicon } from 'react-bootstrap';
-import store from '../store.js';
-import {  addToCart } from '../../actions/actionCreators.js';
+import React  from 'react';
 import { connect } from 'react-redux';
+//import React, { Component } from 'react';
+import { Button, Glyphicon } from 'react-bootstrap';
+//import store from '../store.js';
+import {  addToCart } from '../../actions/actionCreators.js';
 
 
 const styles = {
@@ -18,46 +19,32 @@ const styles = {
   }
 };
 
-class ProductList extends Component {
-
-  constructor() {
-    super();
-      //actualizar el estado local
-      store.subscribe(()=>{
-       //actualizar el estado local
-       this.setState({
-         products: store.getState().products
-       });
-     });
-  }
-
-
-    render(){
-      return (
+const ProductList = ({ products, addToCart }) => {
+  return (
     <div style={styles.products}>
-      {this.props.products.map(product =>
+      {products.map(product =>
         <div className="thumbnail" style={styles.product} key={product.id}>
           <img src={product.image} alt={product.name} />
           <div className="caption">
             <h4>{product.name}</h4>
             <p>
-              <Button bsStyle="primary" onClick={() => this.props.addToCart(product)} role="button" disabled={product.inventory <= 0}>${product.price} <Glyphicon glyph="shopping-cart" /></Button>
+              <Button bsStyle="primary" onClick={() => addToCart(product)} role="button" disabled={product.inventory <= 0}>${product.price} <Glyphicon glyph="shopping-cart" /></Button>
             </p>
           </div>
         </div>
       )}
     </div>
-    )
-  };
+  );
 };
 
-const mapStateToProps = state => {
+
+const mapStateToProps = (state) => {
   return {
     products: state.products
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     addToCart(product) {
       dispatch(addToCart(product));

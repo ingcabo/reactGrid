@@ -77,7 +77,6 @@ const mapDispatchToProps = dispatch =>{
   return{
 
     removeFromCart(product){
-
       dispatch(removeFromCart(product));
     }
   };
