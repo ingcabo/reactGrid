@@ -1,33 +1,29 @@
-let nextTodoId = 0
+import axios from 'axios';
+
+export const loadProducst = () =>{
+    return dispatch => {
+      return axios.get("http://127.0.0.1/dbservice/products")
+      .then(response => {
+        dispatch({
+          type: "REPLACE_PRODUCTS",
+          products: response.data
+        })
+      });
+    };
+}
+
 export const addToCart = (product) => {
+
     return {
         type: "ADD_TO_CART",
-        product
+        product:product
     }
 };
+
 export const removeFromCart = (product) => {
+
         return {
             type: "REMOVE_FROM_CART",
             product
         }
     }
-    /*spromera parte */
-export const addTodo = (text) => {
-    return {
-        type: 'ADD_TODO',
-        id: nextTodoId++,
-        text
-    }
-};
-export const setVisibilityFilter = (filter) => {
-    return {
-        type: 'SET_VISIBILITY_FILTER',
-        filter
-    }
-};
-export const toggleTodo = (id) => {
-    return {
-        type: 'TOGGLE_TODO',
-        id
-    }
-};
