@@ -4,13 +4,11 @@ import store from '../store.js';
 import {  removeFromCart } from '../../actions/actionCreators.js';
 import { connect } from 'react-redux';
 
-
 const styles = {
   footer: {
     fontWeight: 'bold'
   }
 }
-
 
 class ShoppingCart extends Component {
 
@@ -27,11 +25,11 @@ class ShoppingCart extends Component {
      });
   }
 
-
   render() {
     //  console.log(this.props.cart); {Math.random( 100, 10)
     return (
       <Panel header="Promo Cart">
+
         <Table fill>
           <tbody>
             {this.props.cart.map(product =>
@@ -56,28 +54,17 @@ class ShoppingCart extends Component {
       </Panel>
     )
   }
-/*
-  removeFromCart(product) {
-    store.dispatch(removeFromCart(product));
-  };
 }
-*/
-}
-
 
 const mapStateToProps = (state) =>{
-
   return {
     cart: state.cart
   };
 };
 
 const mapDispatchToProps = dispatch =>{
-
   return{
-
     removeFromCart(product){
-
       dispatch(removeFromCart(product));
     }
   };
