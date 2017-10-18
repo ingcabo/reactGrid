@@ -1,0 +1,10 @@
+.body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.NavbarSep {
+    min-height:30px !important; /* aqui escoges el alto que necesites */
+    max-width: 1400px;
+}
