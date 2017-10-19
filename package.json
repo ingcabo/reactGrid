@@ -23,6 +23,7 @@
     "react-redux": "^5.0.6",
     "react-router": "^2.4.0",
     "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
     "react-script": "^2.0.5",
     "redux": "^3.7.2",
     "redux-devtools": "^3.4.0",
@@ -38,6 +39,7 @@
     "build": "webpack --watch --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  
   "author": "",
   "license": "ISC",
   "description": "",
