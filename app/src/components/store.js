@@ -12,7 +12,10 @@ const reducer = (state = initialState, action) => {
         //console.log(action.products.data);
         return {
             ...state,
-            products: action.products.data
+            //rest parametros
+            //products: action.products.data
+            products: action.products
+
         };
     } else if (action.type === "ADD_TO_CART") {
 
