@@ -60,10 +60,10 @@ const changePage = (page) => {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state,page) => {
   return {
     products: state.products,
-     page: Number(1) || 1,
+    page: Number(state.routing.locationBeforeTransitions.query.page) || 1,
   };
 };
 
@@ -76,4 +76,5 @@ const mapDispatchToProps = (dispatch) => {
 }
 //https://github.com/catalin-luntraru/redux-minimal/blob/master/src_users/components/common/UserList.js
 //https://www.youtube.com/watch?v=2qxNVzmiR8Y
+//https://github.com/react-boilerplate/react-boilerplate/issues/1380
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList);
