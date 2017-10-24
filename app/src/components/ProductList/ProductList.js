@@ -27,7 +27,6 @@ const pages = Math.ceil(products.length / per_page);
 const start_offset = (page - 1) * per_page;
 let start_count = 0;
 
-
   return (
 <div>
     <div style={styles.products}>
@@ -54,27 +53,28 @@ let start_count = 0;
   );
 };
 
-// change the user lists' current page
-const changePage = (page) => {
-  this.props.dispatch(push('/?page=' + page));
-}
-
-
 const mapStateToProps = (state,page) => {
   return {
     products: state.products,
-    //page: Number(state.routing.locationBeforeTransitions.query.page) || 1,
-      page: Number(1) || 1,
+    page: Number(state.routing.locationBeforeTransitions.query.page) || 1,
+      //page: Number(2) || 1
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
+
     addToCart(product) {
       dispatch(addToCart(product));
+    },
+    changePage(page) {
+      console.log(page);
+      dispatch(push('/?page=' + page));
     }
+
   };
 }
+//https://github.com/catalin-luntraru/redux-minimal
 //https://github.com/catalin-luntraru/redux-minimal/blob/master/src_users/components/common/UserList.js
 //https://www.youtube.com/watch?v=2qxNVzmiR8Y
 //https://github.com/react-boilerplate/react-boilerplate/issues/1380
