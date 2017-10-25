@@ -1,21 +1,25 @@
 //nos permite crear un store de redux
 //modificacion
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk'
+import { createStore, applyMiddleware, compose  } from 'redux';
+import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
+import thunk from 'redux-thunk';
+
+
+
+
+
+
+
+
 //definimos la funcion reductora recive dos parametros el estado actual y la accion
 var cars = new Array();
-var flat = false;
-var ind = null;
 
 const reducer = (state = initialState, action) => {
     if (action.type === "REPLACE_PRODUCTS") {
         //console.log(action.products.data);
         return {
             ...state,
-            //rest parametros
-            //products: action.products.data
             products: action.products
-
         };
     } else if (action.type === "ADD_TO_CART") {
 
@@ -32,13 +36,13 @@ const reducer = (state = initialState, action) => {
 
         return {
             ...state,
-            //cart: state.cart.filter(product => product.id !== action.product.id)
             cart: cars
         };
     }
 
     return state;
 };
+
 //funcion para sumar item al carrito de compra
 const AddItemCount = (cars, action) => {
     const longArray = cars.length;
@@ -70,6 +74,7 @@ const restItems = (state, action) => {
     return cars;
 }
 
+
 const logger = store => next => action => {
         console.group(action.type)
         console.info('dispatching', action)
@@ -80,8 +85,16 @@ const logger = store => next => action => {
     }
     //http://redux.js.org/docs/advanced/Middleware.html
     // recive la funcion reductora y estado inicial
-export default createStore(reducer, {
-    cart: [],
-    products: []
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-}, applyMiddleware(logger,thunk));
+export default  createStore(
+   reducer, /* preloadedState, */
+     {
+      cart: [],
+      products: [],
+      routing: routerReducer,
+      page: 1
+     },
+   composeEnhancers(
+     applyMiddleware(logger,thunk)
+   ));
