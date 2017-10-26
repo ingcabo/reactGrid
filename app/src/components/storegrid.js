@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Grid, Row, Col } from 'react-bootstrap';
-import ProductList from '../components/ProductList/ProductList.js';
-import ShoppingCart from '../components/car/ShoppingCart.js';
+import ProductList from '../containers/ProductList/ProductList.js';
+import ShoppingCart from '../containers/car/ShoppingCart.js';
 
 import './global/css/store.css'
 

@@ -3,7 +3,7 @@ import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom';
 import {render} from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './components/store.js';
+import store from './lib/store.js';
 import AppRoutes  from  './route';
 import { loadProducst } from './actions/actionCreators.js';
 
