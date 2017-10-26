@@ -8,6 +8,20 @@ import AppRoutes  from  './route';
 import { loadProducst } from './actions/actionCreators.js';
 
 
+//store.dispatch(loadProducst());
+// Reducers
+import rootReducer from './reducers/index.js';
+
+// Redux store
+import configureStore from './lib/configureStore.js';
+
+
+
+// Configuring redux store
+//const store = configureStore(rootReducer);
+
+
+
 store.dispatch(loadProducst());
 
 

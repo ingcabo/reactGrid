@@ -2,7 +2,7 @@ import React  from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import { Button, Glyphicon, Table, Pagination } from 'react-bootstrap';
-import {  addToCart } from '../../actions/actionCreators.js';
+import {  addToCart } from './actions.js';
 
 
 const styles = {
@@ -54,7 +54,6 @@ let start_count = 0;
 };
 
 const mapStateToProps = (state,page) => {
-  console.log(page);
   return {
     products: state.products,
     //page: Number(state.routing.locationBeforeTransitions.query.page) || 1

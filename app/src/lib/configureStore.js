@@ -10,8 +10,7 @@ const injectMiddleware = deps => ({ dispatch, getState }) => next => action =>
     : action
   );
 
-export default function configureStore(options, rootReducer) {
-  const { initialState = {} } = options;
+export default function configureStore(rootReducer) {
 
   const middleware = [
     injectMiddleware({
@@ -23,5 +22,7 @@ export default function configureStore(options, rootReducer) {
     reduxImmutableStateInvariant()
   ];
 
-  return createStore(rootReducer, initialState, applyMiddleware(...middleware));
+  return createStore(
+    rootReducer,
+    applyMiddleware(...middleware));
 }

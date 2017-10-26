@@ -4,13 +4,6 @@ import { createStore, applyMiddleware, compose  } from 'redux';
 import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import thunk from 'redux-thunk';
 
-
-
-
-
-
-
-
 //definimos la funcion reductora recive dos parametros el estado actual y la accion
 var cars = new Array();
 
@@ -92,8 +85,6 @@ export default  createStore(
      {
       cart: [],
       products: [],
-      routing: routerReducer,
-      page: 1
      },
    composeEnhancers(
      applyMiddleware(logger,thunk)
