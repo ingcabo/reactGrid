@@ -15,7 +15,6 @@ export const loadProducst = () =>{
       { id:147, name: "Underground Max", price: 12, image: "https://s3.amazonaws.com/makeitreal/projects/e-commerce/camiseta-3.jpg" },
       { id:140, name: "Underground Max", price: 37, image: "https://s3.amazonaws.com/makeitreal/projects/e-commerce/camiseta-3.jpg" }
     ];
-
     return {
         type: "REPLACE_PRODUCTS",
         products:products

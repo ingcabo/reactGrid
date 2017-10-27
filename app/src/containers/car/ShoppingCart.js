@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { Panel, Table, Button, Glyphicon } from 'react-bootstrap';
-import store from '../../lib/store.js';
+//import store from '../../lib/store.js';
 import {  removeFromCart } from './actions.js';
 import { connect } from 'react-redux';
+
+//import { removeCart } from '../containers/car/actions.js';
+
+// Redux store
+import configureStore from '../../lib/configureStore.js';
+
+// Configuring redux store
+const store = configureStore();
+
 
 const styles = {
   footer: {

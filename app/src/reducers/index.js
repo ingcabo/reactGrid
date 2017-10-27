@@ -5,11 +5,9 @@ import { combineReducers } from 'redux';
 import CartReducer from '../containers/car/reducer.js';
 import ProductListReducer from '../containers/car/reducer.js';
 
-
-
 const rootReducer = combineReducers({
-CartReducer: CartReducer,
-ProductListReducer: ProductListReducer
+cart: CartReducer,
+products: ProductListReducer
 });
 
 export default rootReducer;

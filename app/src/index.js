@@ -2,28 +2,25 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom';
 import {render} from 'react-dom';
-import { Provider } from 'react-redux';
-import store from './lib/store.js';
+import { Provider, connect } from 'react-redux';
+
+//import store from './lib/store.js';
 import AppRoutes  from  './route';
-import { loadProducst } from './actions/actionCreators.js';
+//import { loadProducst } from './actions/actionCreators.js';
 
-
-//store.dispatch(loadProducst());
-// Reducers
-import rootReducer from './reducers/index.js';
+import { loadProducst } from './containers/ProductList/actions.js';
 
 // Redux store
 import configureStore from './lib/configureStore.js';
 
-
-
 // Configuring redux store
-//const store = configureStore(rootReducer);
+const store = configureStore();
 
+store.dispatch(
+  loadProducst()
+);
 
-
-store.dispatch(loadProducst());
-
+//console.log(loadProducst());
 
 
 const app = document.getElementById('app')

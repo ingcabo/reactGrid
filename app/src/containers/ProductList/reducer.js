@@ -2,7 +2,14 @@
 //definimos la funcion reductora recive dos parametros el estado actual y la accion
 var cars = new Array();
 
-const ProductListReducer = (state = initialState, action) => {
+
+export const initialStateProducts = {
+    cart:[],
+    products: []
+  };
+
+function  ProductListReducer  (state = [], action) {
+
     if (action.type === "REPLACE_PRODUCTS") {
         //console.log(action.products.data);
         return {
@@ -24,6 +31,7 @@ const ProductListReducer = (state = initialState, action) => {
 
 //funcion para sumar item al carrito de compra
 const AddItemCount = (cars, action) => {
+
     const longArray = cars.length;
     const index = cars.findIndex(item => item.id === action.product.id);
     if (longArray == 0) {
