@@ -1,13 +1,13 @@
 // Dependencies
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux';
 
 // Apps Reducers
 import CartReducer from '../containers/car/reducer.js';
-import ProductListReducer from '../containers/car/reducer.js';
+import ProductListReducer from '../containers/ProductList/reducer.js';
 
 const rootReducer = combineReducers({
-cart: CartReducer,
-products: ProductListReducer
+  cart: CartReducer,
+  products: ProductListReducer
 });
 
 export default rootReducer;

@@ -14,6 +14,7 @@ import { loadProducst } from './containers/ProductList/actions.js';
 import configureStore from './lib/configureStore.js';
 
 // Configuring redux store
+
 const store = configureStore();
 
 store.dispatch(
