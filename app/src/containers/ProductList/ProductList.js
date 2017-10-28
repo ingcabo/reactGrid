@@ -55,7 +55,7 @@ let start_count = 0;
 
 const mapStateToProps = (state,page) => {
   return {
-    products: state.products.products,
+    products: state.products,
     //page: Number(state.routing.locationBeforeTransitions.query.page) || 1
     page: Number(2) || 1
   };
