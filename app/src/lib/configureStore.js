@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-//import {routerReducer, routerMiddleware, syncHistoryWithStore} from 'react-router-redux';
+import {routerReducer, routerMiddleware, syncHistoryWithStore} from 'react-router-redux';
 // Reducers
 import rootReducer from '../reducers/index.js';
 

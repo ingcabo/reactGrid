@@ -1,7 +1,7 @@
 // Dependencies
 import {combineReducers} from 'redux';
 
-// Reducers
+// Apps Reducers
 import CartReducer from '../containers/car/reducer.js';
 import ProductListReducer from '../containers/ProductList/reducer.js';
 

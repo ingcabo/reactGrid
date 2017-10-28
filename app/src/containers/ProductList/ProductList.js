@@ -19,7 +19,9 @@ const styles = {
 };
 
 const ProductList = ({ products, addToCart, page, changePage}) => {
-// pagination
+
+  // pagination
+
 const per_page = 5;
 const pages = Math.ceil(products.length / per_page);
 const start_offset = (page - 1) * per_page;
@@ -61,12 +63,15 @@ const mapStateToProps = (state,page) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+
     addToCart(product) {
       dispatch(addToCart(product));
     },
     changePage(page) {
+
       dispatch(push('/?page=' + page));
     }
+
   };
 }
 //https://github.com/catalin-luntraru/redux-minimal
