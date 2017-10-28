@@ -18,5 +18,4 @@ const AppRoutes = ()=>
       <Route  component= {Page404} />
     </Switch>
   </App>;
-
 export default  AppRoutes;
