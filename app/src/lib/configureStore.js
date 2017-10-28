@@ -1,31 +1,52 @@
-
 // Dependencies
-//https://github.com/MilkZoft/hello-world-react/commit/ce10c9c0dfeea60251209f5ea6e379cb7cfcd195
 import isomorphicFetch from 'isomorphic-fetch';
 import promiseMiddleware from 'redux-promise-middleware';
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
+// Reducers
+import rootReducer from '../reducers/index.js';
 
-  const injectMiddleware = deps => ({ dispatch, getState }) => next => action =>
-    next(typeof action === 'function'
-      ? action({ ...deps, dispatch, getState })
-      : action
+import thunk from 'redux-thunk';
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+/*
+const injectMiddleware = deps => ({ dispatch, getState }) => next => action =>
+  next(typeof action === 'function'
+    ? action({ ...deps, dispatch, getState })
+    : action
   );
+*/
+  const logger = store => next => action => {
+          console.group(action.type)
+          console.info('dispatching', action)
+          let result = next(action)
+          console.log('next state', store.getState())
+          console.groupEnd(action.type)
+          return result
+      }
 
-  export default function configureStore(options, rootReducer) {
-    const { initialState = {} } = options;
+export default function configureStore(preloadedState) {
+/*
+  const middleware = [
 
-    //ionconst initialState = options.initialState;
+    injectMiddleware({
+      fetch: isomorphicFetch,
+      thunk: thunk,
+      logger:logger,
+      thunk:thunk
+    }),
 
-    const middleware = [
-      injectMiddleware({
-        fetch: isomorphicFetch
-      }),
-      promiseMiddleware({
-        promiseTypeSuffixes: ['START', 'SUCCESS', 'ERROR']
-      }),
-      reduxImmutableStateInvariant()
-    ];
-
-    return createStore(rootReducer, initialState, applyMiddleware(...middleware));
-  }
+    promiseMiddleware({
+      promiseTypeSuffixes: ['START', 'SUCCESS', 'ERROR']
+    }),
+    reduxImmutableStateInvariant()
+  ];
+*/
+  return createStore(
+    rootReducer,
+    preloadedState,
+    composeEnhancers(
+      applyMiddleware(logger,thunk))
+    );
+}
