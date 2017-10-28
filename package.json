@@ -36,7 +36,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --devtool eval --color --progress --content-base build --hot",
+    "start": "./node_modules/.bin/webpack-dev-server --progress --content-base app/dist --inline --hot --colors",
     "build": "webpack --watch --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

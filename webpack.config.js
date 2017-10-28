@@ -12,10 +12,6 @@ var path = require('path');
 module.exports = {
   context: __dirname,
   devtool: debug ? "inline-sourcemap" : null,
-  watchOptions: {
-    aggregateTimeout: 300,
-    poll: 1000
-  },
   //punto de entrada de la app.
   entry: "./app/src/index.js", //el index a transpilar
 
@@ -49,8 +45,9 @@ module.exports = {
       ]
   },
   output: {
-    path: path.resolve(__dirname, "build/"),//carpeta donde se guardara lo compilado
+    path: __dirname + "/app/dist/js/",//carpeta donde se guardara lo compilado
     filename: "index.min.js",//el js minificado final a pasar aproduccion
+    public: "/build/", //directorio publico desde donde se podra vincular https://youtu.be/2M5L_uz6GO0?t=227
     hotUpdateChunkFilename: 'hot/hot-update.js',
     hotUpdateMainFilename: 'hot/hot-update.json'
   },
