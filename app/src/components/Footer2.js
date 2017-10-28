@@ -12,7 +12,7 @@ export default class Footer2 extends React.Component{
   }
 
   render(){
-      const { copyright= '&copyright react 2017'} = this.props;
+      const { copyright= '&copyright Promover 2017'} = this.props;
     return(
       <div className="Footer">
 
