@@ -49,7 +49,7 @@ module.exports = {
       ]
   },
   output: {
-    path: path.resolve(__dirname, "build/"),//carpeta donde se guardara lo compilado
+    path: path.resolve(__dirname, "app/dist/js"),//carpeta donde se guardara lo compilado
     filename: "index.min.js",//el js minificado final a pasar aproduccion
     hotUpdateChunkFilename: 'hot/hot-update.js',
     hotUpdateMainFilename: 'hot/hot-update.json'

@@ -30,7 +30,6 @@ static PropTypes ={
           </Navbar>
           <Content body={children} />
         <Footer2 />
-        
       </div>
     );
   }

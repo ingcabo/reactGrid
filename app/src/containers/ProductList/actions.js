@@ -35,7 +35,6 @@ export const loadProducst = () =>{
     };
 };
 */
-
 export const addToCart = (product) => {
 
     return {

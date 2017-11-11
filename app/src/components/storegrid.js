@@ -5,6 +5,7 @@ import ShoppingCart from '../containers/car/ShoppingCart.js';
 
 import './global/css/store.css'
 
+
 class storegrid extends Component {
    render() {
      return (

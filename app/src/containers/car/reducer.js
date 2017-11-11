@@ -33,7 +33,6 @@ const AddItemCount = (cars, action) => {
   return cars;
 }
 
-
 export default function CartReducer(state = initialStateCart, action) {
 
   if (action.type === "REMOVE_FROM_CART") {

@@ -4,7 +4,6 @@ import {Panel, Table, Button, Glyphicon} from 'react-bootstrap';
 import {removeFromCart} from './actions.js';
 import {connect} from 'react-redux';
 
-
 const styles = {
   footer: {
     fontWeight: 'bold'

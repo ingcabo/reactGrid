@@ -4,7 +4,6 @@ import { push } from 'react-router-redux';
 import { Button, Glyphicon, Table, Pagination } from 'react-bootstrap';
 import {  addToCart } from './actions.js';
 
-
 const styles = {
   products: {
     display: 'flex',
