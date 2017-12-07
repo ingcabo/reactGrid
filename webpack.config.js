@@ -12,6 +12,10 @@ var path = require('path');
 module.exports = {
   context: __dirname,
   devtool: debug ? "inline-sourcemap" : null,
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000
+  },
   //punto de entrada de la app.
   entry: "./app/src/index.js", //el index a transpilar
 
