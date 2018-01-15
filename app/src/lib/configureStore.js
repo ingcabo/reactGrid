@@ -1,8 +1,11 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-import {routerReducer, routerMiddleware, syncHistoryWithStore} from 'react-router-redux';
+import {routerReducer, routerMiddleware } from 'react-router-redux';
+
 // Reducers
 import rootReducer from '../reducers/index.js';
 import thunk from 'redux-thunk';
+
+import history from 'history';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 /*
@@ -21,11 +24,14 @@ const logger = store => next => action => {
   return result
 }
 
-export default function configureStore(preloadedState) {
+const historyMidd = routerMiddleware(history);
+
+const middls =[logger,thunk,historyMidd];
+
+export default function configureStore() {
   return createStore(
     rootReducer,
-    preloadedState,
-    composeEnhancers(
-      applyMiddleware(logger, thunk))
+      composeEnhancers(
+      applyMiddleware(...middls))
   );
 }

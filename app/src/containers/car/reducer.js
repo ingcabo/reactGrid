@@ -16,21 +16,21 @@ const restItems = (cars, action) => {
 }
 
 //funcion para sumar item al carrito de compra
-const AddItemCount = (cars, action) => {
-  const longArray = cars.length;
-  const index = cars.findIndex(item => item.id === action.product.id);
+const AddItemCount = (cart, action) => {
+  const longArray = cart.length;
+  const index = cart.findIndex(item => item.id === action.product.id);
   if (longArray == 0) {
-    cars = cars.concat(action.product);
-    cars[longArray]['cant'] = 1
+    cart = cart.concat(action.product);
+    cart[longArray]['cant'] = 1
   } else {
     if (index == -1) {
-      cars = cars.concat(action.product);
-      cars[longArray]['cant'] = 1
+      cart = cart.concat(action.product);
+      cart[longArray]['cant'] = 1
     } else {
-      cars[index]['cant']++;
+      cart[index]['cant']++;
     }
   }
-  return cars;
+  return cart;
 }
 
 export default function CartReducer(state = initialStateCart, action) {

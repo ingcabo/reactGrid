@@ -17,7 +17,7 @@ export const loadProducst = () =>{
     ];
     return {
         type: "REPLACE_PRODUCTS",
-        products:products
+        products
     };
 };
 
@@ -39,6 +39,6 @@ export const addToCart = (product) => {
 
     return {
         type: "ADD_TO_CART",
-        product:product
+        product
     }
 };

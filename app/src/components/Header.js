@@ -1,7 +1,7 @@
 //dependencies
 import React from 'react';
 import {PropTypes} from 'prop-types';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 //assets
 import './global/css/Header.css';
 import logo from './global/images/logo.svg';
@@ -29,7 +29,7 @@ export default class Header extends React.Component{
 
           <ul className="MenuPropio">
             {
-                items && items.map((item, key) => <li key={key}> <Link to={item.url}> {item.title} </Link> </li>)
+                items && items.map((item, key) => <li key={key}>  </li>)
             }
           </ul>
         </div>

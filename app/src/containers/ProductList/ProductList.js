@@ -1,6 +1,6 @@
 import React  from 'react';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
+import { push } from "react-router-redux";
 import { Button, Glyphicon, Table, Pagination } from 'react-bootstrap';
 import {  addToCart } from './actions.js';
 
@@ -54,9 +54,8 @@ let start_count = 0;
 
 const mapStateToProps = (state,page) => {
   return {
-    products: state.products.products,
-    //page: Number(state.routing.locationBeforeTransitions.query.page) || 1
-    page: Number(2) || 1
+    products: state.products,
+    page: Number(state.routing.locationBeforeTransitions.query.page) || 1
   };
 };
 
@@ -67,8 +66,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(addToCart(product));
     },
     changePage(page) {
-
-      dispatch(push('/?page=' + page));
+        dispatch(push('/?page=' + page));
     }
 
   };
