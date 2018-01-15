@@ -1,8 +1,10 @@
 import React  from 'react';
 import { connect } from 'react-redux';
-import { push } from "react-router-redux";
+import  {push}  from 'react-router-redux';
 import { Button, Glyphicon, Table, Pagination } from 'react-bootstrap';
 import {  addToCart } from './actions.js';
+
+
 
 const styles = {
   products: {
@@ -61,12 +63,11 @@ const mapStateToProps = (state,page) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
     addToCart(product) {
       dispatch(addToCart(product));
     },
     changePage(page) {
-        dispatch(push('/?page=' + page));
+        dispatch(push('store/?page=' + page));
     }
 
   };
