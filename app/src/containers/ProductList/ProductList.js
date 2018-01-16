@@ -4,8 +4,6 @@ import  {push}  from 'react-router-redux';
 import { Button, Glyphicon, Table, Pagination } from 'react-bootstrap';
 import {  addToCart } from './actions.js';
 
-
-
 const styles = {
   products: {
     display: 'flex',
@@ -67,7 +65,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(addToCart(product));
     },
     changePage(page) {
-        dispatch(push('store/?page=' + page));
+        dispatch(push('store?page=' + page));
     }
 
   };

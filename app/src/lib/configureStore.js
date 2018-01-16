@@ -1,20 +1,15 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-import {routerReducer, routerMiddleware } from 'react-router-redux';
-
-// Reducers
+import {routerReducer,routerMiddleware } from 'react-router-redux';
+import { browserHistory } from "react-router";
 import rootReducer from '../reducers/index.js';
 import thunk from 'redux-thunk';
 
-import history from 'history';
+// add the middlewares
+let middlewares = [];
 
+//const historyMidd = routerMiddleware(history);
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-/*
- const injectMiddleware = deps => ({ dispatch, getState }) => next => action =>
- next(typeof action === 'function'
- ? action({ ...deps, dispatch, getState })
- : action
- );
- */
+
 const logger = store => next => action => {
   console.group(action.type)
   console.info('dispatching', action)
@@ -24,14 +19,16 @@ const logger = store => next => action => {
   return result
 }
 
-const historyMidd = routerMiddleware(history);
-
-const middls =[logger,thunk,historyMidd];
+middlewares.push(logger);
+middlewares.push(thunk);
+middlewares.push(routerMiddleware(browserHistory));
+// apply the middleware
+const middleware = applyMiddleware(...middlewares);
+const composeEnhan = composeEnhancers(middleware);
 
 export default function configureStore() {
   return createStore(
     rootReducer,
-      composeEnhancers(
-      applyMiddleware(...middls))
+    composeEnhan
   );
 }
