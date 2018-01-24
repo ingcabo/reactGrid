@@ -13,7 +13,9 @@ import { Provider, connect } from 'react-redux';
 import { Router, Route, browserHistory,IndexRoute,Link } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { loadProducst } from './containers/ProductList/actions.js';
-
+import items from './data/menu.js';
+import Header  from  './Components/Header.js';
+import MenuSim  from  './Components/MenuSim.js';
 const store = configureStore();
 
 store.dispatch(
@@ -24,9 +26,11 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 const AppRoutes = ()=>
   <App>
-    <Provider store={store}>
-      <Router history = {history}>
+<Provider store={store}>
+  <Router history = {history}>
+
     <Switch>
+    
       <Route exact path="/about" component= {About} />
       <Route exact path="/contact" component= {Contact} />
       <Route exact path="/store" component= {storegrid} />

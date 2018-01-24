@@ -6,6 +6,7 @@ import Content from  './Content.js';
 import Footer2  from  './Footer2.js';
 import items from '../data/menu.js';
 import { Navbar } from 'react-bootstrap';
+import Menu from  './menuBar.js';
 
 export default class App extends Component{
 static PropTypes ={
@@ -16,18 +17,13 @@ static PropTypes ={
     const { children  } = this.props;
     return(
       <div className="App">
-
         <Header
-          title="Promover"
-          items ={items}
+            title="Promover"
+            items ={items}
         />
-          <Navbar className="NavbarSep">
-            <Navbar.Header>
-              <Navbar.Brand>
-                <a href="#">Product List</a>
-              </Navbar.Brand>
-            </Navbar.Header>
-          </Navbar>
+
+      
+
           <Content body={children} />
         <Footer2 />
       </div>

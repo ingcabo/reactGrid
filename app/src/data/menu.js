@@ -1,18 +1,22 @@
 export default [
   {
     title: 'Home',
-    url: '/'
+    href: '/',
+    color: "#D7E80B"
   },
   {
     title: 'About Us',
-    url: '/about'
+    href: '/about',
+    color: "#D7E80B"
   },
   {
     title: 'Contact Us',
-    url: '/contact'
+    href: '/contact',
+    color: "#D7E80B"
   },
   {
     title: 'Steore',
-    url: '/store'
+    href: '/store',
+    color: "#D7E80B"
   }
 ];

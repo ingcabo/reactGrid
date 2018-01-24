@@ -15,7 +15,6 @@ const rootReducer = combineReducers({
       // reset form (wipe state) when navigating away from the  edit page
       switch(action.type) {
         case "@@router/LOCATION_CHANGE":
-        console.log("entro en local change");
           return undefined;
         default:
           return state;

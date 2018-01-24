@@ -1,4 +1,5 @@
-import React  from 'react';
+//import React  from 'react';
+var React = require('react');
 import { connect } from 'react-redux';
 import  {push}  from 'react-router-redux';
 import { Button, Glyphicon, Table, Pagination } from 'react-bootstrap';
@@ -21,7 +22,7 @@ const ProductList = ({ products, addToCart, page, changePage}) => {
 
   // pagination
 
-const per_page = 5;
+const per_page = 6;
 const pages = Math.ceil(products.length / per_page);
 const start_offset = (page - 1) * per_page;
 let start_count = 0;
@@ -56,6 +57,7 @@ const mapStateToProps = (state,page) => {
   return {
     products: state.products,
     page: Number(state.routing.locationBeforeTransitions.query.page) || 1
+
   };
 };
 
@@ -67,7 +69,6 @@ const mapDispatchToProps = (dispatch) => {
     changePage(page) {
         dispatch(push('store?page=' + page));
     }
-
   };
 }
 //https://github.com/catalin-luntraru/redux-minimal

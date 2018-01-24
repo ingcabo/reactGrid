@@ -19,11 +19,26 @@ const logger = store => next => action => {
   return result
 }
 
+const crashReporter = store => next => action => {
+  try {
+    return next(action)
+  } catch (err) {
+    console.error('Caught an exception!', err)
+    Raven.captureException(err, {
+      extra: {
+        action,
+        state: store.getState()
+      }
+    })
+    throw err
+  }
+}
+
 middlewares.push(logger);
 middlewares.push(thunk);
 middlewares.push(routerMiddleware(browserHistory));
 // apply the middleware
-const middleware = applyMiddleware(...middlewares);
+const middleware = applyMiddleware(...middlewares,crashReporter);
 const composeEnhan = composeEnhancers(middleware);
 
 export default function configureStore() {
