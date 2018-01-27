@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import { Navbar } from 'react-bootstrap';
 
 import Header  from  './Header.js';
 import Content from  './Content.js';
 import Footer2  from  './Footer2.js';
 import items from '../data/menu.js';
-import { Navbar } from 'react-bootstrap';
-import Menu from  './menuBar.js';
+
+import MenuSim  from  './MenuSim.js';
 
 export default class App extends Component{
 static PropTypes ={
@@ -21,9 +22,6 @@ static PropTypes ={
             title="Promover"
             items ={items}
         />
-
-      
-
           <Content body={children} />
         <Footer2 />
       </div>

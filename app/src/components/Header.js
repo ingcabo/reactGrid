@@ -10,7 +10,7 @@ import logo from './global/images/logo.svg';
 
 import items from '../data/menu.js';
 
-import MenuSim  from  './MenuSim.js';
+//import MenuSim  from  './MenuSim.js';
 
 
 export default class Header extends React.Component{
@@ -31,7 +31,6 @@ export default class Header extends React.Component{
         <div className="Logo">
             <h2>Promover</h2>
               <img src={logo} className="App-logo" alt="logo" />
-            <MenuSim />
           </div>
       </div>
     );

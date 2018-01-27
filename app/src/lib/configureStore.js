@@ -1,6 +1,8 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import {routerReducer,routerMiddleware } from 'react-router-redux';
 import { browserHistory } from "react-router";
+//import { BrowserRouter } from "react-router-dom";
+
 import rootReducer from '../reducers/index.js';
 import thunk from 'redux-thunk';
 
