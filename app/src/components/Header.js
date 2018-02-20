@@ -6,7 +6,7 @@ import {  Link, IndexRoute } from 'react-router';
 //import { LinkContainer } from "react-router-bootstrap";
 //assets
 import './global/css/Header.css';
-import logo from './global/images/logo.svg';
+import logo from './global/images/promosite.png';
 
 import items from '../data/menu.js';
 
@@ -29,7 +29,7 @@ export default class Header extends React.Component{
     return(
       <div className="Header">
         <div className="Logo">
-            <h2>Promover</h2>
+            <h2>  -----.....----  </h2>
               <img src={logo} className="App-logo" alt="logo" />
           </div>
       </div>

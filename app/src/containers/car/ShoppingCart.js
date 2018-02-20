@@ -13,11 +13,13 @@ const styles = {
 class ShoppingCart extends Component {
   /*ya utilizamos react react-redux y no neceiso en constructor se utiliza mapStateToProps para llevar el estado inicial */
   constructor(props) {
-    super(props);
+   super(props);
   }
 
   render() {
+
     const {cart} = this.props
+
     return (
       <Panel header="Promo Cart">
         <Table fill>
@@ -49,7 +51,7 @@ class ShoppingCart extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    cart: state.cart.cart
+    cart: state.cart
   };
 };
 

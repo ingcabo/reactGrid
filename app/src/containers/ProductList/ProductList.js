@@ -7,6 +7,7 @@ import {  addToCart } from './actions.js';
 
 const styles = {
   products: {
+    margin: '50px',
     display: 'flex',
     alignItems: 'stretch',
     flexWrap: 'wrap'
@@ -15,6 +16,9 @@ const styles = {
     width: '220px',
     marginLeft: 10,
     marginRight: 10
+  },
+  paginationLing:{
+    marginLeft: '400px'
   }
 };
 
@@ -22,7 +26,7 @@ const ProductList = ({ products, addToCart, page, changePage}) => {
 
   // pagination
 
-const per_page = 6;
+const per_page = 8;
 const pages = Math.ceil(products.length / per_page);
 const start_offset = (page - 1) * per_page;
 let start_count = 0;
@@ -30,7 +34,8 @@ let start_count = 0;
   return (
 <div>
     <div style={styles.products}>
-        {products.map((product,index) => {
+        {
+          products.map((product,index) => {
             if (index >= start_offset && start_count < per_page) {
               start_count++;
               return(
@@ -47,13 +52,16 @@ let start_count = 0;
            }
         })}
     </div>
-    <Pagination className="products-pagination pull-right" bsSize="medium" maxButtons={10} first last next
+    <div style={styles.paginationLing}>
+    <Pagination className="pagination pull-center" bsSize="medium" maxButtons={10} first last next
     prev boundaryLinks items={pages} activePage={page} onSelect={changePage}/>
-</div>
+  </div>
+    </div>
   );
 };
 
 const mapStateToProps = (state,page) => {
+  console.log(state.products);
   return {
     products: state.products,
     page: Number(state.routing.locationBeforeTransitions.query.page) || 1

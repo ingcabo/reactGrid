@@ -17,11 +17,13 @@ import { loadProducst } from './containers/ProductList/actions.js';
 
 const store = configureStore();
 
+  //loadProducst();
+
 store.dispatch(
   loadProducst()
 );
 
-//const history = 
+//const history =
 syncHistoryWithStore(browserHistory, store);
 
 const AppRoutes = ()=>
@@ -31,10 +33,11 @@ const AppRoutes = ()=>
     <div>
     <MenuSim />
      <Switch>
+      <Route exact path="/"  component= {Home} />
+      <Route exact path="/home"  component= {Home} />
       <Route exact path="/about" component= {About} />
       <Route exact path="/contact" component= {Contact} />
       <Route exact path="/store" component= {storegrid} />
-      <Route exact path="/"  component= {Home} />
       <Route  component= {Page404} />
     </Switch>
   </div>

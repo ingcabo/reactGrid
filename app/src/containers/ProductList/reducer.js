@@ -2,7 +2,7 @@
 
 export default function ProductListReducer(state = {}, action) {
   if (action.type === "REPLACE_PRODUCTS") {
-    //console.log(action.products.data);
+    console.log(action);
     const products  = action.products;
     return products;
   }

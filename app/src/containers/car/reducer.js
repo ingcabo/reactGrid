@@ -1,5 +1,5 @@
 //definimos la funcion reductora recive dos parametros el estado actual y la accion
-export const initialStateCart = {cart: []}
+export const initialStateCart = [];
 //funcion que resta items del carrito
 const restItems = (cars, action) => {
 
@@ -17,6 +17,7 @@ const restItems = (cars, action) => {
 
 //funcion para sumar item al carrito de compra
 const AddItemCount = (cart, action) => {
+  console.log(action.product);
   const longArray = cart.length;
   const index = cart.findIndex(item => item.id === action.product.id);
   if (longArray == 0) {
@@ -39,8 +40,9 @@ export default function CartReducer(state = initialStateCart, action) {
     let cars = restItems([...state.cart], action);
     return {...state, cart: cars}
   } else if (action.type === "ADD_TO_CART") {
-    let cars = AddItemCount([...state.cart], action);
-    return Object.assign({}, state, {cart:cars})
+    console.log(state);
+    let cars = AddItemCount([...state], action);
+    return Object.assign([], state, {cart:cars})
     //return {...state, cart: cars};
   }
   return state;

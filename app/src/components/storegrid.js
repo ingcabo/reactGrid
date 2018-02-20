@@ -8,15 +8,16 @@ import './global/css/store.css'
 
 class storegrid extends Component {
    render() {
+     //<ShoppingCart />
+     /*  <Col sm={4}>
+
+       </Col>*/
      return (
        <div>
         <Grid>
           <Row>
-            <Col sm={8}>
+            <Col sm={12}>
               <ProductList />
-            </Col>
-            <Col sm={4}>
-              <ShoppingCart />
             </Col>
           </Row>
         </Grid>

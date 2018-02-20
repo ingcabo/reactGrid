@@ -7,8 +7,7 @@
 }
 
 .Logo img {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 120px;
 }
 
 @keyframes App-logo-spin {

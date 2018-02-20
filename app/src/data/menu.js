@@ -1,7 +1,7 @@
 export default [
   {
     title: 'Home',
-    href: '/',
+    href: '/home',
     color: "#D7E80B"
   },
   {
