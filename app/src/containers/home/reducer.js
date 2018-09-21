@@ -1,10 +1,10 @@
-export const initialStateRedirect =  false;
+export const initialStateRedirect =  false
 
 export default function redirectReducer(state = initialStateRedirect, action) {
-  if (action.type === "REDIRECT") {
+    if (action.type === "REDIRECT") {
     //console.log(action);
-    const redirect  = action.redirect;
-    return redirect;
-  }
-    return state;
+        const redirect  = action.redirect
+        return redirect
+    }
+    return state
 }

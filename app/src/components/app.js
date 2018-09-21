@@ -8,9 +8,11 @@ import Footer2  from  './Footer2.js';
 import items from '../data/menu.js';
 
 import MenuSim  from  './MenuSim.js';
+import "babel-polyfill";
 
 export default class App extends Component{
-static PropTypes ={
+
+static PropTypes = {
   children: PropTypes.object.isRequired
 };
 

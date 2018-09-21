@@ -3,4 +3,4 @@ export const Apiredirect = (redirect) => {
         type: "REDIRECT",
         redirect
     }
-};
+}
