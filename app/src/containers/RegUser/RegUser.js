@@ -43,10 +43,6 @@ export default class UserForm extends Component  {
                             }}
                         />
                     </div>
-
-
-
-
                     <label>{lablex.lastnameUser}</label>
                     <Control.text
                         model="myForms.user.lastname"
