@@ -1,52 +1,53 @@
-// Dependencies
-import isomorphicFetch from 'isomorphic-fetch';
-import promiseMiddleware from 'redux-promise-middleware';
-import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
-import { createStore, applyMiddleware, compose } from 'redux';
-import { routerReducer, routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
-// Reducers
-import rootReducer from '../reducers/index.js';
+import {createStore, applyMiddleware, compose} from "redux"
+import {routerReducer,routerMiddleware } from "react-router-redux"
+import { browserHistory } from "react-router"
+//import { BrowserRouter } from "react-router-dom"
 
-import thunk from 'redux-thunk';
+import rootReducer from "../reducers/index.js"
+import thunk from "redux-thunk"
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-/*
-const injectMiddleware = deps => ({ dispatch, getState }) => next => action =>
-  next(typeof action === 'function'
-    ? action({ ...deps, dispatch, getState })
-    : action
-  );
-*/
-  const logger = store => next => action => {
-          console.group(action.type)
-          console.info('dispatching', action)
-          let result = next(action)
-          console.log('next state', store.getState())
-          console.groupEnd(action.type)
-          return result
-      }
+// add the middlewares
+let middlewares = []
 
-export default function configureStore(preloadedState) {
-/*
-  const middleware = [
+//const historyMidd = routerMiddleware(history)
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-    injectMiddleware({
-      fetch: isomorphicFetch,
-      thunk: thunk,
-      logger:logger,
-      thunk:thunk
-    }),
+const logger = store => next => action => {
+    console.group(action.type)
+    console.info("dispatching", action)
+    let result = next(action)
+    console.log("next state", store.getState())
+    console.groupEnd(action.type)
+    return result
+}
 
-    promiseMiddleware({
-      promiseTypeSuffixes: ['START', 'SUCCESS', 'ERROR']
-    }),
-    reduxImmutableStateInvariant()
-  ];
-*/
-  return createStore(
-    rootReducer,
-    preloadedState,
-    composeEnhancers(
-      applyMiddleware(logger,thunk))
-    );
+const crashReporter = store => next => action => {
+    try {
+        return next(action)
+        console.log("entro aca")
+    } catch (err) {
+        console.error("Caught an exception!", err)
+        Raven.captureException(err, {
+            extra: {
+                action,
+                state: store.getState()
+            }
+        })
+        throw err
+    }
+}
+
+const historyMidd = routerMiddleware(browserHistory)
+// Add middlewares
+middlewares = [thunk, logger,crashReporter,historyMidd]
+//middlewares.push(routerMiddleware(browserHistory))
+// apply the middleware
+const middleware = applyMiddleware(...middlewares)
+const composeEnhan = composeEnhancers(middleware)
+
+export default function configureStore() {
+    return createStore(
+        rootReducer,
+        composeEnhan
+    )
 }

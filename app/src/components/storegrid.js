@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
-import { Navbar, Grid, Row, Col } from 'react-bootstrap';
-import ProductList from '../containers/ProductList/ProductList.js';
-import ShoppingCart from '../containers/car/ShoppingCart.js';
+import React, { Component } from "react"
+import { Navbar, Grid, Row, Col } from "react-bootstrap"
+import ProductList from "../containers/ProductList/ProductList.js"
+import ShoppingCart from "../containers/car/ShoppingCart.js"
 
-import './global/css/store.css'
+import "./global/css/store.css"
 
 class storegrid extends Component {
-   render() {
-     return (
-       <div>
-        <Grid>
-          <Row>
-            <Col sm={8}>
-              <ProductList />
-            </Col>
-            <Col sm={4}>
-              <ShoppingCart />
-            </Col>
-          </Row>
-        </Grid>
-       </div>
-     );
-   }
+    render() {
+    //<ShoppingCart />
+    /*  <Col sm={4}>
+       </Col>*/
+        return (
+            <div>
+                <Grid>
+                    <Row>
+                        <Col sm={12}>
+                            <ProductList />
+                        </Col>
+                    </Row>
+                </Grid>
+            </div>
+        )
+    }
 }
 
-export default storegrid;
+export default storegrid
