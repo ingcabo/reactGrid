@@ -48,7 +48,6 @@ export default class UserForm extends Component  {
                         model="myForms.user.lastname"
                         placeholder="your Last name"
                     />
-
                     <div className="#">
                         <label>{lablex.emailUser}</label>
                         <Control
