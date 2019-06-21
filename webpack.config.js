@@ -7,17 +7,18 @@
  */
 var debug = process.env.NODE_ENV !== "production"
 var webpack = require("webpack")
-var path = require('path');
+var path = require('path')
 
+//inline-sourcemap
 module.exports = {
-  context: __dirname,
-  devtool: debug ? "inline-sourcemap" : null,
-  watchOptions: {
-    aggregateTimeout: 300,
-    poll: 1000
-  },
-  //punto de entrada de la app.
-  entry: "./app/src/index.js", //el index a transpilar
+    context: __dirname,
+    devtool: debug ? "source-map" : null,
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000
+    },
+    //punto de entrada de la app.
+    entry: "./app/src/index.js", //el index a transpilar
 
   //con el objeto module y el array de loaders se indica que trasnformaciones se desea que haga
   //https://youtu.be/2M5L_uz6GO0?t=296 (explicacion module)

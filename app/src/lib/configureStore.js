@@ -10,7 +10,7 @@ import thunk from "redux-thunk"
 let middlewares = []
 
 //const historyMidd = routerMiddleware(history)
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true, traceLimit: 25 }) || compose
 
 const logger = store => next => action => {
     console.group(action.type)
