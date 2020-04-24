@@ -32,7 +32,8 @@ label {
   color: $color-label;
 }
 
-input:not([type="radio"]):not([type="checkbox"]), textarea {
+
+input:not([type="radio"]):not([type="checkbox"]):not([name="myForms.user.dni"]), textarea {
   appearance: none;
   border: 1px solid $color-border;
   font-size: 1rem;
@@ -44,6 +45,8 @@ input:not([type="radio"]):not([type="checkbox"]), textarea {
     outline: 2px solid $color-primary;
   }
 }
+
+
 
 input[type="radio"], input[type="checkbox"] {
   margin-right: 0.5rem;
@@ -94,4 +97,22 @@ body, html {
 
 .divCentrado{
   margin-left: 8rem;
+}
+.dniSelectClass{
+  min-height: 2.4rem;
+  min-width: 5rem;
+  margin-right: 1rem;
+  margin-left: 0rem;
+}
+.dniImputClass{
+  appearance: none;
+  border: 1px solid $color-border;
+  font-size: 1rem;
+  padding: 0.5rem;
+  min-width: 29rem;
+  margin-bottom: 0.90rem;
+
+  &:focus {
+    outline: 2px solid $color-primary;
+  }
 }
