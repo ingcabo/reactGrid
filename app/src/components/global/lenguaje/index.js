@@ -8,20 +8,24 @@ export default {
 
           lastUserName: "Apellido",
           placeholderLastName:"Tu Apellido aca",
-          ruleUserNameLastUserNameReq:"Apellido es Requerido",
           ruleLastUserNameLong:"Debe tener 15 caracteres o menos",
-
-          ruleUserDniLong:"Debe tener 15 caracteres o menos",
-          ruleUserDniReq:"Numero Documento Requerido",
+          ruleUserLastNameReq: "Nombre es Requerido",
 
           emailUser: "Correo Electronico",
           ruleUserEmailVal:"Dirección de correo electrónico no válida",
           ruleUserEmailReq:" Correo electronico es requerido",
           ruleUserEmailMinLong:"Muy pocos caracteres,   ",
-          passwordsMatch:"Los correos no son iguales",
+          passwordsMatch:"  Los correos no son iguales ",
 
           emailUserR: "Repita Correo Electronico",
-          ruleUserEmailRval:"Dirección de correo electrónico no válida",
-          ruleUserEmailRreq:"correo electronico es requerido"
+          ruleUserEmailRval:" Dirección de correo electrónico no válida ",
+          ruleUserEmailRreq:" Correo electronico es requerido ",
+
+          placeholderdni: "Documento Identidad",
+          ruleUserDniLong:"Debe tener 15 caracteres o menos",
+          ruleUserDniReq:"Numero Documento Requerido",
+
+          emailsMatch:"  Los Emails no son iguales   "
+
       }
 }

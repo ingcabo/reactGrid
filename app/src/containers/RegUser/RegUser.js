@@ -3,7 +3,7 @@ import React, {Component} from "react"
 import { Form, Control, Errors } from "react-redux-form"
 import { connect } from "react-redux"
 
-import {maxLength,required,minLength,equealEmail} from  "../../components/global/Validation/index.js"
+import {maxLength,required,minLength,equealEmail,emailsMatch} from  "../../components/global/Validation/index.js"
 import "../../components/global/css/regUser.css"
 import txt from  "../../components/global/lenguaje/index.js"
 
@@ -19,15 +19,16 @@ export default class UserForm extends Component  {
         console.log(values)
     }
 
+    const dataMatch = ({ email, emailR }) => {
+      return email === emailR;
+    };
 
     render() {
         return (
             <Form
                 model="myForms.user"
                 validators={{
-                    '': {
-                        passwordsMatch: (vals) => vals.emailR ===  vals.email,
-                    },
+                  // '': {dataMatch}
                 }}
 
                 onSubmit={(values) => this.handleSubmit(values)}
@@ -36,7 +37,7 @@ export default class UserForm extends Component  {
 
                     <label>{lablex.userName}</label>
                     <Control.text
-                        model="myForms.user.name"
+                        model=".name"
                         placeholder={lablex.placeholderUserName}
                         required
                         validators={{
@@ -45,10 +46,10 @@ export default class UserForm extends Component  {
                     />
                     <Errors
                         className="errors"
-                        model="myForms.user.name"
+                        model=".name"
                         show="touched"
                         messages={{
-                            valueMissing: lablex.ruleUserNameReq,
+                            valueMissing: lablex.ruleUserLastNameReq,
                             maxLength: lablex.ruleUsernameLong
                         }}
                     />
@@ -56,26 +57,26 @@ export default class UserForm extends Component  {
                     <div className="field">
                         <label>{lablex.lastUserName}</label>
                         <Control.text
-                            model="myForms.user.lastName"
+                            model=".lastName"
                             placeholder={lablex.placeholderLastName}
                             required
                             validators={{
-                                maxLength: maxLength(15)
+                              maxLength: maxLength(15)
                             }}
                         />
                         <Errors
                             className="errors"
-                            model="myForms.user.lastName"
+                            model=".lastName"
                             show="touched"
                             messages={{
-                                required: lablex.ruleUserNameLastUserNameReq,
-                                maxLength: lablex.ruleLastUserNameLong,
+                                valueMissing: lablex.ruleUserLastNameReq,
+                                maxLength: lablex.ruleLastUserNameLong
                             }}
                         />
                     </div>
-                    <label>{lablex.userName}</label>
+                    <label>{lablex.placeholderdni}</label>
                     <div>
-                        <Control.select model="myForms.user.typeDoc" id="myForms.user.typeDoc" className="dniSelectClass">
+                        <Control.select model="typeDoc" id=".typeDoc" className="dniSelectClass">
                             <option value="green">Dni</option>
                             <option value="red">Pass</option>
                             <option value="blue">Cedula</option>
@@ -83,7 +84,7 @@ export default class UserForm extends Component  {
 
                         <Control.text
                             className="dniImputClass"
-                            model="myForms.user.dni"
+                            model=".dni"
                             placeholder={lablex.placeholderdni}
                             required
                             validators={{
@@ -93,10 +94,10 @@ export default class UserForm extends Component  {
 
                         <Errors
                             className="errors"
-                            model="myForms.user.dni"
+                            model=".dni"
                             show="touched"
                             messages={{
-                                required: lablex.ruleUserDniReq,
+                                valueMissing: lablex.ruleUserDniReq,
                                 maxLength: lablex.ruleUserDniLong,
                             }}
                         />
@@ -104,18 +105,16 @@ export default class UserForm extends Component  {
                     </div>
 
                     <label>{lablex.emailUser}</label>
-                    <Control
+                    <Control.text
                         type="email"
                         model=".email"
                         placeholder="email@example.com"
                         required
-                        validators={{
-                            minLength: minLength(5)
-                        }}
                     />
                     <Errors
                         className="errors"
-                        model="myForms.user.email"
+                        model=".email"
+                        id = ".email"
                         show="touched"
                         messages={{
                             valueMissing: lablex.ruleUserEmailReq,
@@ -125,25 +124,29 @@ export default class UserForm extends Component  {
                     />
 
                     <label>{lablex.emailUserR}</label>
-                    <Control
+                    <Control.text
                         type="email"
                         model=".emailR"
+                        id = ".emailR"
                         placeholder="email@example.com"
                         required
+                        validators={{
+
+                        }}
                     />
                     <Errors
-                        className="errors"
-                        model="myForms.user.emailR"
+                        className="text-danger"
+                        model=".emailR"
                         show="touched"
                         messages={{
                             valueMissing: lablex.ruleUserEmailRreq,
                             typeMismatch: lablex.ruleUserEmailRval,
-                            minLength: lablex.ruleUserEmailMinLong,
-                            passwordsMatch:lablex.passwordsMatch
+                            minLength: lablex.ruleUserEmailMinLong
+                            //dataMatch:lablex.emailsMatch
                         }}
                     />
                 </div>
-
+              <button type="submit">Submit</button>
             </Form>
         )
     }

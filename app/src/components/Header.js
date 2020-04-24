@@ -6,23 +6,18 @@ import {  Link, IndexRoute } from 'react-router';
 //import { LinkContainer } from "react-router-bootstrap";
 //assets
 import './global/css/Header.css';
-import logo from './global/images/promosite.png';
-
+//import logo from './global/images/promosite.png';
 import items from '../data/menu.js';
-
 //import MenuSim  from  './MenuSim.js';
-
-
 export default class Header extends React.Component{
 
   static propTypes = {
     //title : PropTypes.string.isRequired,
-  //  items : PropTypes.array.isRequired
+  //  items : PropTypes.array.isRequired   //  <img src={logo} className="App-logo" alt="logo" />
   }
 
   constructor(){
     super()
-
   }
 
   render(){
@@ -30,7 +25,7 @@ export default class Header extends React.Component{
       <div className="Header">
         <div className="Logo">
             <h2>  -----.....----  </h2>
-              <img src={logo} className="App-logo" alt="logo" />
+
           </div>
       </div>
     );
